@@ -1,11 +1,4 @@
-**Depreciation Note:   
-Please note, this repo was part of an implementation study and is not longer maintained.
-Please do not use for production.** 
-
----
-
-# sandbox-ui
-Service that delivers a simple web app for interacting with the sandbox system
+# UI for the GHGA Data Portal (v0)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
