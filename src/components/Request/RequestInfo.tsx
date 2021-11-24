@@ -4,7 +4,7 @@ import Badge from "../Badge";
 const RequestInfo = (props: { request: requestModel}) => (
     <div>
         <div>
-            <Badge key_="dataset" value={props.request.dataset_id}/>
+            <Badge key_="dataset" value={props.request.dataset_id.toString()}/>
             <Badge key_="status" value={props.request.status}/>
             <Badge key_="Requestor" value={props.request.user_id}/>
         </div>

@@ -3,7 +3,7 @@ import CreateRequestForm from './CreateRequestForm';
 import { Link } from 'react-router-dom';
 import Button from '../Button';
 
-const RequestAccess = (props: {datasetId: string}) => {
+const RequestAccess = (props: {datasetId: number}) => {
     const [wasExpanded, setWasExpanded] = React.useState<boolean>(false)
 
     // is set once a request was created:

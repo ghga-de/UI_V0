@@ -15,7 +15,7 @@ const RequestRouter = () => {
     return reqList == null || reqList.length === 0 ? (
         <LoadingIndicator 
             size="large"
-            message="Simulated loading of a list of all requests..."
+            message="Loading the list of all requests..."
         />
     ) : (
         <Route path="/request/:requestId?" render={({ match }) => (

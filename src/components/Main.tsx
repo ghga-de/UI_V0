@@ -6,8 +6,10 @@ import { getCurrentUser } from '../utils/funcUtils';
 import RequireAuth from './RequireAuth';
 import modules from './modules';
 
-const Main = (props: {moduleFocus: moduleIds}) => {
+const Main = (props: {moduleFocus: moduleIds, moduleTitle: string}) => {
     const currentUser = getCurrentUser();
+
+    document.title = props.moduleTitle + " | GHGA";
 
     return (
         <div style={{height: "100%", margin: "10px 16px"}}>

@@ -1,5 +1,6 @@
 export interface datasetModel {
-    id: string;
+    id: number,
+    uuid: string,
     title: string,
     description: string,
     type: string,

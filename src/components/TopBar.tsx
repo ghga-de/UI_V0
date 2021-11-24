@@ -1,6 +1,4 @@
 import './components.css';
-import React from 'react';
-import logo from '../logo.png';
 import { moduleIds} from '../utils/modules';
 import { Link } from "react-router-dom";
 import { getCurrentUser } from '../utils/funcUtils';
@@ -55,20 +53,10 @@ const TopBar = (props: topBarProps) => {
             className="w3-bar w3-center w3-round-xlarge background"
         >
             <BarItem 
-                moduleId="welcome"
-                isHome={true}
+                moduleId="browse"
                 moduleFocus={props.moduleFocus}
             >
-                <span>
-                    <img src={logo} height="40px" alt=""/>
-                    Data Portal
-                </span>
-            </BarItem>
-            <BarItem 
-                moduleId="explore"
-                moduleFocus={props.moduleFocus}
-            >
-                Explore
+                Browse
             </BarItem>
             <BarItem 
                 moduleId="request"

@@ -24,7 +24,7 @@ const RequestContent = (props: requestContentProps) => {
                 {props.request == null ? (
                         <LoadingIndicator 
                             size="large"
-                            message="Simulated loading of request metadata..."
+                            message="Loading the request metadata..."
                         />
                     ) : (
                         <div className="w3-center">
