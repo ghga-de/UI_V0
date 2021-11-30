@@ -1,9 +1,9 @@
 import React from 'react';
 // import { datasetEmbeddedModel } from "../../dataModels/metadata";
 // import { getOneDataset } from "../../backendCalls/metadata";
-import KeyValueField from '../KeyValueField';
+// import KeyValueField from '../KeyValueField';
 import LoadingIndicator from '../LoadingIndicator';
-import FileTable from './FileTable';
+// import FileTable from './FileTable';
 import { dsList } from "../../data/datasets";
 
 
@@ -27,7 +27,7 @@ const DataSetDetails = (props: {datasetId: number}) => {
                 {/* <KeyValueField key_="ID" value={dataset.has_study.id}/>
                 <KeyValueField key_="Title" value={dataset.has_study.title}/> */}
                 <div>
-                    <span className="w3-text-green" style={{ padding: "8px"}}>
+                    <span    className="w3-text-indigo" style={{ padding: "8px"}}>
                         Abstract:
                     </span>
                     <div className="w3-container">

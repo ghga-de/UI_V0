@@ -14,7 +14,7 @@ const CreateRequestForm = (props: createRequestFormProps) => {
     
     return (
         <div className="w3-panel">
-            <div className="w3-text-green">
+            <div    className="w3-text-indigo">
                 Please explain your interest:
             </div>
             <textarea className="w3-input w3-border"
@@ -28,7 +28,7 @@ const CreateRequestForm = (props: createRequestFormProps) => {
             />
             <Button 
                 className="w3-right"
-                color="green"
+                color="red"
                 icon="fas fa-key"
                 style={{margin: "16px"}}
                 onClick={() => {

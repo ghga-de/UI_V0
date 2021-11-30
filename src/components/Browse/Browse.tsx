@@ -17,7 +17,7 @@ const Browse = () => {
             <div className="w3-container w3-center">
                 <h1>
                     <i className="fas fa-search"/> &nbsp;
-                    Browse Our Catalog of Datasets
+                    Browse Our Catalogue of Datasets
                 </h1>
             </div>
             {dsList == null ? (

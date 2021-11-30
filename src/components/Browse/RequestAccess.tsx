@@ -40,7 +40,7 @@ const RequestAccess = (props: {datasetId: number}) => {
                 ) : (
                     <Button 
                         className="w3-right"
-                        color="green"
+                        color="red"
                         icon="fas fa-key"
                         style={{margin: "16px"}}
                         onClick={() => setWasExpanded(true)}

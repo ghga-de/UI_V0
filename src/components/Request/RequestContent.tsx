@@ -18,7 +18,7 @@ const RequestContent = (props: requestContentProps) => {
             
             <div>
                 <h3 className="w3-center">
-                    <span className="w3-text-green">Request:</span>&nbsp;
+                    <span    className="w3-text-indigo">Request:</span>&nbsp;
                     {props.request.id}
                 </h3>
                 {props.request == null ? (

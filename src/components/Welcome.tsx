@@ -7,7 +7,7 @@ const WelcomeModule = () => (
         <h1>
             The GHGA Sandbox Data Portal 
         </h1>
-        <h4 className="w3-text-green">
+        <h4    className="w3-text-indigo">
             Browse. Extract. Experiment.
         </h4>
 
