@@ -4,7 +4,7 @@ import { getCurrentUser } from "../../utils/funcUtils";
 import Button from "../Button";
 
 interface createRequestFormProps {
-    datasetId: number,
+    datasetId: string,
     setReqId: (reqId: string) => void;
 }
 

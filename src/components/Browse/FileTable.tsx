@@ -1,5 +1,5 @@
-import { fileModel } from "../../dataModels/metadata";
-import { bytesToGB } from '../../utils/funcUtils';
+import { datasetFileModel } from "../../dataModels/metadata";
+// import { bytesToGB } from '../../utils/funcUtils';
 
 
 const TH = (props: {children: any}) => (
@@ -21,25 +21,25 @@ const TD = (props: {children: any}) => (
 );
 
 
-const FileTable = (props: {files: fileModel[]}) => (
+const FileTable = (props: {files: datasetFileModel[]}) => (
     <table className="w3-table">
         <thead>
             <tr>
-                <TH>ID</TH>
-                <TH>Name</TH>
+                <TH>Accession ID</TH>
+                {/* <TH>Name</TH> */}
                 <TH>Format</TH>
-                <TH>Category</TH>
-                <TH>Size [GB]</TH>
+                {/* <TH>Category</TH> */}
+                {/* <TH>Size [GB]</TH> */}
             </tr>
         </thead>
         <tbody>
             {props.files.map( (file) =>(
-                <tr key={file.id}>
-                    <TD>{file.id}</TD>
-                    <TD>{file.name}</TD>
+                <tr key={file.accession}>
+                    <TD>{file.accession}</TD>
+                    {/* <TD>{file.name}</TD> */}
                     <TD>{file.format}</TD>
-                    <TD>{file.category}</TD>
-                    <TD>{bytesToGB(file.size)}</TD>
+                    {/* <TD>{file.category}</TD> */}
+                    {/* <TD>{bytesToGB(file.size)}</TD> */}
                 </tr>
             ))}    
         </tbody>

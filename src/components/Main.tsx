@@ -1,4 +1,4 @@
-import TopBar from './TopBar';
+import Header from './Header';
 import Footer from './Footer';
 import './components.css';
 import { moduleIds } from '../utils/modules';
@@ -15,7 +15,7 @@ const Main = (props: {moduleFocus: moduleIds, moduleTitle: string}) => {
         <div
         style={{padding:"20px"}}
         >
-            <TopBar 
+            <Header 
                 moduleFocus={props.moduleFocus}
             />
             <div 

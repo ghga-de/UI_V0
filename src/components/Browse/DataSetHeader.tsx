@@ -1,8 +1,8 @@
-import { datasetModel } from '../../dataModels/metadata';
-import { formatIsoDate } from '../../utils/funcUtils';
+import { hitContentModel } from '../../dataModels/metadata';
+// import { formatIsoDate } from '../../utils/funcUtils';
 import '../components.css';
 
-const DataSetHeader = (props: {dataset: datasetModel}) => (
+const DataSetHeader = (props: {dataset: hitContentModel}) => (
     <div 
         className="w3-bar w3-round-xlarge w3-hover-amber interactive-item-header"
     >   
@@ -14,12 +14,13 @@ const DataSetHeader = (props: {dataset: datasetModel}) => (
                     </td>
                     <td>{props.dataset.id}</td>
                 </tr>
-                <tr>
+                {/* <tr>
                     <td    className="w3-text-indigo">
                         Date:
                     </td>
-                    <td>{formatIsoDate(props.dataset.creation_date)}</td>
-                </tr>
+                    <td></td> */}
+                    {/* <td>{formatIsoDate(props.dataset.creation_date)}</td> */}
+                {/* </tr> */}
             </tbody></table>
         </div>
         <div className="w3-bar-item">
@@ -35,7 +36,7 @@ const DataSetHeader = (props: {dataset: datasetModel}) => (
         <div className="w3-bar-item">
             <table><tbody>
                 <tr>
-                    <td    className="w3-text-indigo">
+                    <td className="w3-text-indigo" style={{verticalAlign: "text-top"}}>
                         Description:
                     </td>
                     <td>{props.dataset.description}</td>

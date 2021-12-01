@@ -3,7 +3,7 @@ import LoadingIndicator from '../LoadingIndicator';
 // import { datasetModel } from '../../dataModels/metadata';
 import DataSetList from './DatasetList';
 // import { getAllDatasets } from "../../backendCalls/metadata";
-import { dsList } from "../../data/datasets";
+import { searchResults } from "../../data/search_response";
 
 const Browse = () => {
     // list of all datasets, null if not loaded yet
@@ -12,11 +12,13 @@ const Browse = () => {
     // // on mount:
     // React.useEffect( () => getAllDatasets(setDsList), []);
 
+    const dsList = searchResults[0].hits;
+
     return (
         <div className="w3-panel">
             <div className="w3-container w3-center">
                 <h1>
-                    <i className="fas fa-search"/> &nbsp;
+                    <i className="fas fa-search"/>
                     Browse Our Catalogue of Datasets
                 </h1>
             </div>

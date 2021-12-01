@@ -4,11 +4,11 @@ import { getOneDataset } from "../../backendCalls/metadata";
 import LoadingIndicator from "../LoadingIndicator";
 import FileAccess from "./FileAccess";
 
-const FileAccessList = (props: {datasetId: number}) => {
+const FileAccessList = (props: {datasetId: string}) => {
     const [dataset, setDataset] = React.useState<datasetEmbeddedModel|null>(null);
 
     // on mount:
-    React.useEffect( () => getOneDataset(props.datasetId.toString(), setDataset), []);
+    React.useEffect( () => getOneDataset(props.datasetId.toString(), setDataset), [props.datasetId]);
 
     return (
         <div className="w3-panel">

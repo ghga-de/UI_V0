@@ -1,17 +1,17 @@
-import { datasetModel } from '../../dataModels/metadata';
+import { hitModel } from '../../dataModels/metadata';
 import DataSet from './DataSet';
 
 interface dataSetListProps {
-    datasets: datasetModel[];
+    datasets: hitModel[];
 };
 
 const DataSetList = (props: dataSetListProps) => (
     <div style={ {overflow:"auto"} }>
             {
-                props.datasets.map( (ds) => (
+                props.datasets.map( (hit) => (
                             <DataSet 
-                                key={ds.id} 
-                                dataset={ds}
+                                key={hit.id} 
+                                dataset={hit}
                                 hasFocus={false}
                             />
                     )
