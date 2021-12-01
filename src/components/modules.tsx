@@ -1,16 +1,11 @@
-import Welcome from '../components/Welcome';
 import Login from './Login/Login';
-import Explore from '../components/Explore/Explore';
+import Browse from '../components/Browse/Browse';
 import RequestRouter from './Request/RequestRouter';
 
 const modules = {
-    welcome: {
+    browse: {
         authRequired: false,
-        component: <Welcome />
-    },
-    explore: {
-        authRequired: false,
-        component: <Explore />
+        component: <Browse />
     },
     request: {
         authRequired: true,

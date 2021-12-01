@@ -4,11 +4,11 @@ import { getOneDataset } from "../../backendCalls/metadata";
 import LoadingIndicator from "../LoadingIndicator";
 import FileAccess from "./FileAccess";
 
-const FileAccessList = (props: {datasetId: string}) => {
+const FileAccessList = (props: {datasetId: number}) => {
     const [dataset, setDataset] = React.useState<datasetEmbeddedModel|null>(null);
 
     // on mount:
-    React.useEffect( () => getOneDataset(props.datasetId, setDataset), []);
+    React.useEffect( () => getOneDataset(props.datasetId.toString(), setDataset), []);
 
     return (
         <div className="w3-panel">
@@ -19,7 +19,7 @@ const FileAccessList = (props: {datasetId: string}) => {
             {dataset === null ? (
                     <LoadingIndicator
                         size="large"
-                        message="Simulated loading of file information..."
+                        message="Loading the file information..."
                     />
                 ) : (
                     dataset.files.length === 0 ? (

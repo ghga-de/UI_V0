@@ -4,7 +4,7 @@ import { bytesToGB } from '../../utils/funcUtils';
 
 const TH = (props: {children: any}) => (
     <th
-        className="w3-text-green" 
+           className="w3-text-indigo" 
         style={{padding: "8px"}}
     >
         {props.children}

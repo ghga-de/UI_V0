@@ -1,18 +1,19 @@
 .background {
-    background-color: rgb(34, 34, 34);
+    background-color: rgb(255, 255, 255);
 }
 
 .foreground {
-    background-color: rgb(74, 74, 74);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgba(17,45,233,0.2);
 }
 
 .interactive-item {
-    background-color: rgb(48, 48, 48);
+    border: 2px solid rgb(196,52,34);
     padding: 0px !important;
 }
 
 .interactive-item-header {
-    background-color: black;
+    background-color: rgba(232,186,46,0.2);
 }
 
 .side-bar {
@@ -63,4 +64,4 @@
 @keyframes spin {
     0% { transform: rotate(0deg) }
     100% { transform: rotate(360deg) }
-} 
+}

@@ -35,7 +35,7 @@ const FileAccess = (props: {file: fileModel}) => {
 
     return(
         <div 
-            className="w3-bar w3-round-xlarge w3-hover-light-grey interactive-item-header"
+            className="w3-bar w3-round-xlarge w3-hover-amber interactive-item-header"
             style={{width: "100%"}}
         >
             <div className="w3-bar-item">

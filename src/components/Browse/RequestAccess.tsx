@@ -3,7 +3,7 @@ import CreateRequestForm from './CreateRequestForm';
 import { Link } from 'react-router-dom';
 import Button from '../Button';
 
-const RequestAccess = (props: {datasetId: string}) => {
+const RequestAccess = (props: {datasetId: number}) => {
     const [wasExpanded, setWasExpanded] = React.useState<boolean>(false)
 
     // is set once a request was created:
@@ -40,7 +40,7 @@ const RequestAccess = (props: {datasetId: string}) => {
                 ) : (
                     <Button 
                         className="w3-right"
-                        color="green"
+                        color="red"
                         icon="fas fa-key"
                         style={{margin: "16px"}}
                         onClick={() => setWasExpanded(true)}

@@ -1,16 +1,20 @@
-import React from 'react';
 import TopBar from './TopBar';
+import Footer from './Footer';
 import './components.css';
 import { moduleIds } from '../utils/modules';
 import { getCurrentUser } from '../utils/funcUtils';
 import RequireAuth from './RequireAuth';
 import modules from './modules';
 
-const Main = (props: {moduleFocus: moduleIds}) => {
+const Main = (props: {moduleFocus: moduleIds, moduleTitle: string}) => {
     const currentUser = getCurrentUser();
 
+    document.title = props.moduleTitle + " | GHGA";
+
     return (
-        <div style={{height: "100%", margin: "10px 16px"}}>
+        <div
+        style={{padding:"20px"}}
+        >
             <TopBar 
                 moduleFocus={props.moduleFocus}
             />
@@ -24,7 +28,7 @@ const Main = (props: {moduleFocus: moduleIds}) => {
                     modules[props.moduleFocus].component
                 )}
             </div>
-
+            <Footer/>
         </div>
     );
 };

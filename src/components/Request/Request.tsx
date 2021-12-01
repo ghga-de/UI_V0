@@ -22,7 +22,7 @@ const Request = (props: requestProps) => {
     // find request that is focussed:
     const focussedRequest = reqList.filter( req => req.id === props.reqFocus )[0]
     if (props.reqFocus != null && focussedRequest === undefined) {
-        throw `Request with id "${props.reqFocus}" was not found.`
+        throw new Error(`Request with id "${props.reqFocus}" was not found.`)
     }
     
     return (
@@ -30,8 +30,8 @@ const Request = (props: requestProps) => {
             {reqList.length === 0 ? (
                 <div className="w3-panel">
                     <h3>It's empty here.</h3>
-                    Please explore our datasets
-                    ("Explore" in the top bar) and
+                    Please browse our datasets
+                    ("Browse" in the top bar) and
                     create your first request.
                 </div>
             ) : (

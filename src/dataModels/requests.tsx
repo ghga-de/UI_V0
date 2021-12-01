@@ -5,7 +5,7 @@ export type requestStatusType = (
 )
 
 export interface requestInitModel {
-    dataset_id: string;
+    dataset_id: number;
     user_id: string;
     purpose: string;
 }

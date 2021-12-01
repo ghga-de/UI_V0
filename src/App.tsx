@@ -14,14 +14,15 @@ function App() {
             // a list or enum
             const moduleId: moduleIds = (
               match.params.moduleId && (
-                match.params.moduleId === "explore" ||
                 match.params.moduleId === "request" ||
                 match.params.moduleId === "login"
               )
-            ) ? match.params.moduleId : "welcome";
+            ) ? match.params.moduleId : "browse";
+            
+            const moduleTitle = moduleId.charAt(0).toUpperCase() + moduleId.slice(1)
             
             return (
-              <Main moduleFocus={moduleId}/>
+              <Main moduleFocus={moduleId} moduleTitle={moduleTitle}/>
             );
         }}/>
       </Router>

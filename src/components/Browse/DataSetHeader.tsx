@@ -4,18 +4,18 @@ import '../components.css';
 
 const DataSetHeader = (props: {dataset: datasetModel}) => (
     <div 
-        className="w3-bar w3-round-xlarge w3-hover-light-grey interactive-item-header"
+        className="w3-bar w3-round-xlarge w3-hover-amber interactive-item-header"
     >   
         <div className="w3-bar-item">
             <table><tbody>
                 <tr>
-                    <td className="w3-text-green">
+                    <td    className="w3-text-indigo">
                         ID:
                     </td>
                     <td>{props.dataset.id}</td>
                 </tr>
                 <tr>
-                    <td className="w3-text-green">
+                    <td    className="w3-text-indigo">
                         Date:
                     </td>
                     <td>{formatIsoDate(props.dataset.creation_date)}</td>
@@ -25,7 +25,7 @@ const DataSetHeader = (props: {dataset: datasetModel}) => (
         <div className="w3-bar-item">
             <table><tbody>
                 <tr>
-                    <td className="w3-text-green">
+                    <td    className="w3-text-indigo">
                         Title:
                     </td>
                     <td>{props.dataset.title}</td>
@@ -35,7 +35,7 @@ const DataSetHeader = (props: {dataset: datasetModel}) => (
         <div className="w3-bar-item">
             <table><tbody>
                 <tr>
-                    <td className="w3-text-green">
+                    <td    className="w3-text-indigo">
                         Description:
                     </td>
                     <td>{props.dataset.description}</td>
