@@ -7,7 +7,7 @@ import LoadingIndicator from '../LoadingIndicator';
 import FileTable from './FileTable';
 
 
-const DataSetDetails = (props: {datasetId: string}) => {
+const DataSetDetails = (props: { datasetId: string }) => {
     // const [dataset, setDataset] = React.useState<datasetEmbeddedModel|null>(null);
 
     // // on mount:
@@ -15,42 +15,46 @@ const DataSetDetails = (props: {datasetId: string}) => {
 
     const dataset = require('../../data/datasets/' + props.datasetId).default[0];
 
-    console.log(dataset)
-
     return dataset === null ? (
         <LoadingIndicator
             size="large"
             message="Loading dataset details. Please wait ..."
         />
     ) : (
-        <div style={{ padding: "0px 32px"}}>
-    	    <div className="w3-container">
-                <h3>Associated Study:</h3>
-                <KeyValueField key_="ID" value={dataset.content[0].has_study}/>
+        <div style={{ padding: "0px 32px" }}>
+            <div className="w3-container">
+                <h3>Details:</h3>
+                <KeyValueField key_="Description" value={dataset.content[0].description} />
             </div>
-            <hr/>
+            <hr />
+            <div className="w3-container">
+                <h3>Associated Study:</h3>
+                <KeyValueField key_="ID" value={dataset.content[0].has_study} />
+            </div>
+            <hr />
             <div className="w3-container">
                 <h3>Associated Project:</h3>
-                <KeyValueField key_="ID" value={dataset.content[0].has_project[0].id}/>
-                <KeyValueField key_="Title" value={dataset.content[0].has_project[0].title}/>
+                <KeyValueField key_="ID" value={dataset.content[0].has_project[0].id} />
+                <KeyValueField key_="Title" value={dataset.content[0].has_project[0].title} />
             </div>
-            <hr/>
+            <hr />
             <div className="w3-container">
                 <h3>Associated Experiment:</h3>
-                <KeyValueField key_="ID" value={dataset.content[0].has_experiment[0].id}/>
-                <KeyValueField key_="Type" value={dataset.content[0].has_experiment[0].type}/>
+                <KeyValueField key_="ID" value={dataset.content[0].has_experiment[0].id} />
+                <KeyValueField key_="Type" value={dataset.content[0].has_experiment[0].type} />
                 <div className="w3-container">
-                <h5>Samples:</h5>
-                {dataset.content[0].has_experiment[0].has_sample.map((sample: datasetSampleModel) =>
-                    (<div><KeyValueField key_="Sample ID" value={sample.id}/>
-                    <KeyValueField key_="Sample Tissue" value={sample.tissue}/></div>)
+                    <hr />
+                    <h5>Samples:</h5>
+                    {dataset.content[0].has_experiment[0].has_sample.map((sample: datasetSampleModel) =>
+                    (<div><KeyValueField key_="Sample ID" value={sample.id} />
+                        <KeyValueField key_="Sample Tissue" value={sample.tissue} /></div>)
                     )}
-                    </div>
-                <hr/>
+                </div>
+                <hr />
                 <h3>Files:</h3>
                 <FileTable files={dataset.content[0].has_experiment[0].has_file} />
             </div>
-            <hr/>
+            <hr />
         </div>
     );
 

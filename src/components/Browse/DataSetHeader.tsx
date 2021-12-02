@@ -33,16 +33,6 @@ const DataSetHeader = (props: {dataset: hitContentModel}) => (
                 </tr>
             </tbody></table>
         </div>
-        <div className="w3-bar-item">
-            <table><tbody>
-                <tr>
-                    <td className="w3-text-indigo" style={{verticalAlign: "text-top"}}>
-                        Description:
-                    </td>
-                    <td>{props.dataset.description}</td>
-                </tr>
-            </tbody></table>
-        </div>
         <div className="w3-bar-item w3-right">
             <i className="fas fa-chevron-down" />
         </div>
