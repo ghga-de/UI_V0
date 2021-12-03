@@ -23,8 +23,8 @@ services:
       SANDBOX_UI_WELCOME_INFO: This web app is part of an implementation study.\nIt's not intended for production use.
     ports:
       - 8000:8080
-    depends_on:
-      - sandbox_metadata_svc
+    # depends_on:
+    #   - sandbox_metadata_svc
 
 
   # sandbox-metadata:

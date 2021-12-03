@@ -21,7 +21,7 @@ const DataSetDetails = (props: { datasetId: string }) => {
             message="Loading dataset details. Please wait ..."
         />
     ) : (
-        <div style={{ padding: "0px 32px" }}>
+        <div style={{ padding: "4px 12px 0" }}>
             <div className="w3-container">
                 <h3>Details:</h3>
                 <KeyValueField key_="Description" value={dataset.content[0].description} />

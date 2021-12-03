@@ -18,16 +18,11 @@ const Main = (props: {moduleFocus: moduleIds, moduleTitle: string}) => {
             <Header 
                 moduleFocus={props.moduleFocus}
             />
-            <div 
-                className="w3-panel w3-round-xlarge foreground"
-                style={{height: "calc(100% - 70px)", padding: "0px"}}
-            >
                 {(modules[props.moduleFocus].authRequired && !currentUser) ? (
                     <RequireAuth />
                 ) : (
                     modules[props.moduleFocus].component
                 )}
-            </div>
             <Footer/>
         </div>
     );
