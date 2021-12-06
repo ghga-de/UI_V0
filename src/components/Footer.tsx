@@ -9,16 +9,16 @@ const Footer = () => {
                         <h4>About us</h4>
                         <ul>
                             <li>
-                                <a href="/about-us/team">Team</a>
+                                <a href="https://ghga-dev.wacontest.de/about-us/team">Team</a>
                             </li>
                             <li>
-                                <a href="/institutions">Institutions</a>
+                                <a href="https://ghga-dev.wacontest.de/institutions">Institutions</a>
                             </li>
                             <li>
-                                <a href="/about-us/contact">Contact</a>
+                                <a href="https://ghga-dev.wacontest.de/about-us/contact">Contact</a>
                             </li>
                             <li>
-                                <a href="/institutions/jobs">Jobs</a>
+                                <a href="https://ghga-dev.wacontest.de/institutions/jobs">Jobs</a>
                             </li>
                         </ul>
                     </div>
@@ -26,13 +26,13 @@ const Footer = () => {
                         <h4>Mission</h4>
                         <ul>
                             <li>
-                                <a href="/mission/mission-statement">Mission and Goals</a>
+                                <a href="https://ghga-dev.wacontest.de/mission/mission-statement">Mission and Goals</a>
                             </li>
                             <li>
-                                <a href="/mission/task-areas">Workstreams</a>
+                                <a href="https://ghga-dev.wacontest.de/mission/task-areas">Workstreams</a>
                             </li>
                             <li>
-                                <a href="/mission/partners">Partners</a>
+                                <a href="https://ghga-dev.wacontest.de/mission/partners">Partners</a>
                             </li>
                         </ul>
                     </div>
@@ -40,13 +40,13 @@ const Footer = () => {
                         <h4>Community</h4>
                         <ul>
                             <li>
-                                <a href="/test">Cancer</a>
+                                <a href="https://ghga-dev.wacontest.de/test">Cancer</a>
                             </li>
                             <li>
-                                <a href="/standard-titel/default-title">Data protection</a>
+                                <a href="https://ghga-dev.wacontest.de/standard-titel/default-title">Data protection</a>
                             </li>
                             <li>
-                                <a href="/standard-titel/rare">Rare Disease</a>
+                                <a href="https://ghga-dev.wacontest.de/standard-titel/rare">Rare Disease</a>
                             </li>
                         </ul>
                     </div>
@@ -54,13 +54,13 @@ const Footer = () => {
                         <h4>News &amp; Events</h4>
                         <ul>
                             <li>
-                                <a href="/news-events/news">News</a>
+                                <a href="https://ghga-dev.wacontest.de/news-events/news">News</a>
                             </li>
                             <li>
-                                <a href="/default-title">Events</a>
+                                <a href="https://ghga-dev.wacontest.de/default-title">Events</a>
                             </li>
                             <li>
-                                <a href="/news-events/publications">Publications</a>
+                                <a href="https://ghga-dev.wacontest.de/news-events/publications">Publications</a>
                             </li>
                         </ul>
                     </div>
@@ -68,13 +68,13 @@ const Footer = () => {
                         <h4>Resources</h4>
                         <ul>
                             <li>
-                                <a href="/resources/portal">Portal</a>
+                                <a href="/browse">Portal</a>
                             </li>
                             <li>
-                                <a href="/resources/workflows">Workflows</a>
+                                <a href="https://ghga-dev.wacontest.de/resources/workflows">Workflows</a>
                             </li>
                             <li>
-                                <a href="/resources/consent-tools">Consent Tools</a>
+                                <a href="https://ghga-dev.wacontest.de/resources/consent-tools">Consent Tools</a>
                             </li>
                         </ul>
                     </div>

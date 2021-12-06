@@ -55,7 +55,7 @@ export const updateRequestStatus: updateRequestStatusInterface = (requestId, new
 
 
 interface newRequestModel {
-    datasetId: number;
+    datasetId: string;
     purpose: string;
     userId: string;
 };
