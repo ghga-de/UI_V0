@@ -1,7 +1,6 @@
 import { hitContentModel } from '../../dataModels/metadata';
 // import { formatIsoDate } from '../../utils/funcUtils';
 import '../components.css';
-import '../components.css';
 
 const DataSetHeader = (props: {dataset: hitContentModel}) => (
     <div 
