@@ -118,7 +118,7 @@ export const searchResults: searchResponse[] = [
             },
             {
                 "key": "has_experiment.type",
-                "title": "",
+                "title": "Experiment Type",
                 "options": [
                     {
                         "option": "WGS",

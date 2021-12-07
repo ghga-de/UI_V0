@@ -4,11 +4,11 @@
 
 .foreground {
     background-color: rgb(255, 255, 255);
-    border: 2px solid rgba(17,45,233,0.2);
+    border: 1px solid rgba(17,45,233,0.2);
 }
 
 .interactive-item {
-    border: 2px solid rgb(196,52,34);
+    border: 1px solid rgb(196,52,34);
     padding: 0px !important;
 }
 
