@@ -1,6 +1,6 @@
 version: '3.2'
 services:
-  sandbox_ui_svc:
+  data_portal_ui_svc:
 
     build:
       context: .

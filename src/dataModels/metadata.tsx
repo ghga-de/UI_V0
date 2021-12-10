@@ -8,7 +8,7 @@ export interface datasetFileModel {
     format: string,
 }
 
-export interface datasetProjectModel {
+export interface datasetPublicationModel {
     id: string,
     title:string
 }
@@ -20,22 +20,20 @@ export interface datasetExperimentModel {
     has_file: datasetFileModel[]
 }
 
-export interface datasetContentModel {
-    id: string;
+export interface datasetModel {
+    document_type: string;
+    id: string,
     accession: string,
     title: string,
     description: string,
     type: string[],
+    has_file: datasetFileModel[]
     has_study: string,
-    has_project: datasetProjectModel[]
+    has_publication: datasetPublicationModel[]
     has_experiment: datasetExperimentModel[]
-}
-
-export interface datasetModel {
-    document_type: string;
-    id: string,
-    context: string | null,
-    content: datasetContentModel[],
+    status: string
+    creation_date: string
+    update_date: string
 }; 
 
 
@@ -80,7 +78,7 @@ export interface hitModel {
     document_type: string;
     id: string,
     context: string | null,
-    content: hitContentModel[],
+    content: hitContentModel,
 };
 
 export interface facetOptionsModel {
@@ -94,7 +92,7 @@ export interface facetModel {
     options: facetOptionsModel[],
 };
 
-export interface searchResponse {
+export interface searchResponseModel {
     hits: hitModel[];
     facets: facetModel[],
 };

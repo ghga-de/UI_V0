@@ -1,10 +1,8 @@
-import { searchResults } from "../../data/search_response";
+// import { searchResults } from "../../data/search_response";
 import { facetModel } from "../../dataModels/metadata";
 import Facet from "./Facet";
 
-const Filters = () => {
-
-    const facetList: facetModel[] = searchResults[0].facets;
+const Filters = (props: { facetList : facetModel[] }) => {
 
     return (
         <div style={{ width: "300px", marginRight: "20px", border: "1px solid rgba(17,45,233,0.2)", flexShrink: 0, backgroundColor: "rgba(17,45,233,0.05)", height:"max-content" }}
@@ -12,7 +10,7 @@ const Filters = () => {
             <h3>Filters:</h3>
             <form >
                 {
-                    facetList.map((fc) => (
+                    props.facetList.map((fc) => (
                         <Facet facet={fc} key={fc.key} />
                     ))
                 }

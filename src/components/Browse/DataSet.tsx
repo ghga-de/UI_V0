@@ -20,7 +20,7 @@ const DataSet = (props: dataSetProps) => {
             className="w3-panel w3-round-xlarge interactive-item"
         >
             <div onClick={() => setHasFocus(!hasFocus)}>
-                <DataSetHeader dataset={props.dataset.content[0]}/>
+                <DataSetHeader dataset={props.dataset.content}/>
             </div>
             {hasFocus && (
                 <div>

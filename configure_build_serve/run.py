@@ -34,6 +34,7 @@ class Config(BaseSettings):
     host: str = "localhost"
     port: int = 8080
     welcome_info: Optional[str]
+    svc_metadata_search_url: str = "https://sandbox.api.ghga-dev.de/metadata-search"
     svc_metadata_url: str = "https://sandbox.api.ghga-dev.de/metadata"
     svc_request_url: str = "https://sandbox.api.ghga-dev.de/request"
     svc_storage_url: str = "https://sandbox.api.ghga-dev.de/storage"

@@ -15,7 +15,7 @@ services:
 
   # sandbox-ui
 
-  sandbox_ui_svc:
+  data_portal_ui_svc:
     image: ghga/sandbox-ui:dev
     environment:
       SANDBOX_UI_HOST: 0.0.0.0
@@ -23,58 +23,105 @@ services:
       SANDBOX_UI_WELCOME_INFO: This web app is part of an implementation study.\nIt's not intended for production use.
     ports:
       - 8000:8080
-    # depends_on:
-    #   - sandbox_metadata_svc
+    depends_on:
+      - metadata_search_svc
+      - metadata_rep
 
+  # metadata search
 
-  # sandbox-metadata:
+  metadata_search_svc:
+    image: ghga/metadata-search-service:dev
+    environment:
+      METADATA_SEARCH_SERVICE_HOST: 0.0.0.0
+      METADATA_SEARCH_SERVICE_PORT: 8080
+      METADATA_SEARCH_SERVICE_CORS_ALLOWED_ORIGINS: '["*"]'
+      METADATA_SEARCH_SERVICE_CORS_ALLOW_CREDENTIALS: "true"
+      METADATA_SEARCH_SERVICE_CORS_ALLOWED_METHODS: '["*"]'
+      METADATA_SEARCH_SERVICE_CORS_ALLOWED_HEADERS: '["*"]'
+      METADATA_SEARCH_SERVICE_LOG_LEVEL: debug
+      METADATA_SEARCH_SERVICE_DB_URL: mongodb://metadata_db:27017
+      METADATA_SEARCH_SERVICE_DB_NAME: metadata
+    entrypoint: ["bash", "-c"]
+    command: |
+      '''
+      # install additional deps as they are needed for the population script;
+      cd /service
+      pip install ".[all]"
 
-  # sandbox_metadata_svc:
-  #   image: ghga/sandbox-metadata:dev
-  #   environment:
-  #     SANDBOX_METADATA_HOST: 0.0.0.0
-  #     SANDBOX_METADATA_PORT: 8080
-  #     SANDBOX_METADATA_CORS_ALLOWED_ORIGINS: '["*"]'
-  #     SANDBOX_METADATA_CORS_ALLOW_CREDENTIALS: "true"
-  #     SANDBOX_METADATA_CORS_ALLOWED_METHODS: '["*"]'
-  #     SANDBOX_METADATA_CORS_ALLOWED_HEADERS: '["*"]'
-  #     SANDBOX_METADATA_LOG_LEVEL: debug
-  #     SANDBOX_METADATA_DB_URL: mongodb://sandbox_metadata_db:27017
-  #     SANDBOX_METADATA_DB_NAME: metadata
-  #   entrypoint: ["bash", "-c"]
-  #   command: |
-  #     '''
-  #     # install additional deps as they are needed for the population script;
-  #     cd /service
-  #     pip install ".[all]"
+      # run the service:
+      metadata-search-service
+      '''
+    ports:
+      - 8001:8080
+    depends_on:
+      - metadata_db
 
-  #     # delete records in db and initialise counters:
-  #     python3 /service/scripts/delete_all_metadata_records.py \
-  #       --db-url "$${SANDBOX_METADATA_DB_URL}" \
-  #       --db-name "$${SANDBOX_METADATA_DB_NAME}"
-  #     python3 /service/scripts/generate_sequence_for_collections.py \
-  #       --db-url "$${SANDBOX_METADATA_DB_URL}" \
-  #       --db-name "$${SANDBOX_METADATA_DB_NAME}"
+  #metadata repo
 
-  #     # pre-populate the database via the API:
-  #     # (wait for the API to come up)
-  #     ( sleep 2 && /service/scripts/populate_metadata_store.py --base-url http://localhost:8080) &
+  metadata_rep:
+    image: ghga/metadata-repository-service:dev
+    environment:
+      METADATA_REPOSITORY_SERVICE_HOST: 0.0.0.0
+      METADATA_REPOSITORY_SERVICE_PORT: 8080
+      METADATA_REPOSITORY_SERVICE_CORS_ALLOWED_ORIGINS: '["*"]'
+      METADATA_REPOSITORY_SERVICE_CORS_ALLOW_CREDENTIALS: "true"
+      METADATA_REPOSITORY_SERVICE_CORS_ALLOWED_METHODS: '["*"]'
+      METADATA_REPOSITORY_SERVICE_CORS_ALLOWED_HEADERS: '["*"]'
+      METADATA_REPOSITORY_SERVICE_LOG_LEVEL: debug
+      METADATA_REPOSITORY_SERVICE_DB_URL: mongodb://metadata_db:27017
+      METADATA_REPOSITORY_SERVICE_DB_NAME: metadata
+    env_file:
+      - ./envs.env
+    entrypoint: ["bash", "-c"]
+    command: |
+      '''
+      set -x
+      if [ "$${METADATA_REPOSITORY_SERVICE_DATA_LOAD_URL}" != "" ]; then
+        # Obtain the data to be imported
+        curl -Lo /tmp/data.zip "$${METADATA_REPOSITORY_SERVICE_DATA_LOAD_URL}"
+        mkdir /tmp/data /tmp/example_dir
+        cd /tmp/data
+        unzip /tmp/data.zip
+        find /tmp/data
+        pip install typer
 
-  #     # run the service:
-  #     metadata-service
-  #     '''
-  #   ports:
-  #     - 8001:8080
-  #   depends_on:
-  #     - sandbox_metadata_db
+        # Clear the database
+        /service/scripts/delete_all_metadata_records.py \
+          --db-url "$${METADATA_REPOSITORY_SERVICE_DB_URL}" \
+          --db-name "$${METADATA_REPOSITORY_SERVICE_DB_NAME}"
 
-  # sandbox_metadata_db:
-  #   image: mongo:4.4.6
-  #   volumes:
-  #     - sandbox_metadata_db_fs:/data/db
-  #   ports:
-  #     - 27000:27017
+        # Convert the data to GHGA format
+        python scripts/transform_ega_to_ghga.py \
+          --ega-dac-json data/original/dacs.json \
+          --ega-dataset-json data/original/datasets.json \
+          --ega-studies-json data/original/studies.json \
+          --output /tmp/example_dir
 
+        # Populate the database
+        /service/scripts/populate_metadata_store.py --example-dir /tmp/example_dir \
+          --db-url "$${METADATA_REPOSITORY_SERVICE_DB_URL}" \
+          --db-name "$${METADATA_REPOSITORY_SERVICE_DB_NAME}"
+      fi
+
+      # Run the service
+      metadata-repository-service
+      '''
+    ports:
+      - 8002:8080
+    depends_on:
+      - metadata_db
+
+  # mongo db
+
+  metadata_db:
+    image: mongo:5.0.4
+    volumes:
+      - metadata_db_fs:/data/db
+    ports:
+      - 27000:27017
+
+volumes:
+  metadata_db_fs: {}
 
   # # sandbox-storage:
 

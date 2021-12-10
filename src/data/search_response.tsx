@@ -1,13 +1,13 @@
-import { searchResponse } from "../dataModels/metadata";
+import { searchResponseModel } from "../dataModels/metadata";
 
-export const searchResults: searchResponse[] = [
+export const searchResults: searchResponseModel[] = [
     {
         hits: [
             {
                 document_type: "Dataset",
                 id: "d9320c3a-f641-476b-aed7-f4d5d6c48dfa",
                 context: null,
-                content: [
+                content:
                     {
                         id: "d9320c3a-f641-476b-aed7-f4d5d6c48dfa",
                         accession: "EGAD00001000174",
@@ -18,13 +18,12 @@ export const searchResults: searchResponse[] = [
                         ],
                         has_study: "451129d4-9e08-43f8-8d46-e9050a58bda3"
                     }
-                ]
             },
             {
                 document_type: "Dataset",
                 id: "b5b5b624-8cf6-4e97-9a89-800bd9fc617d",
                 context: null,
-                content: [
+                content:
                     {
                         id: "b5b5b624-8cf6-4e97-9a89-800bd9fc617d",
                         accession: "EGAD00001000366",
@@ -35,13 +34,12 @@ export const searchResults: searchResponse[] = [
                         ],
                         has_study: "451129d4-9e08-43f8-8d46-e9050a58bda3"
                     }
-                ]
             },
             {
                 document_type: "Dataset",
                 id: "5724f8e3-e172-4459-b3f6-af696846ff91",
                 context: null,
-                content: [
+                content:
                     {
                         id: "5724f8e3-e172-4459-b3f6-af696846ff91",
                         accession: "EGAD00001000884",
@@ -52,7 +50,6 @@ export const searchResults: searchResponse[] = [
                         ],
                         has_study: "f0b6d49f-e2f5-43b0-83c1-a9508b8d4b63"
                     }
-                ]
             }
         ],
         facets: [

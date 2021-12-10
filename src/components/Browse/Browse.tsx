@@ -1,37 +1,47 @@
 import React from 'react';
 import LoadingIndicator from '../LoadingIndicator';
-// import { datasetModel } from '../../dataModels/metadata';
 import DataSetList from './DatasetList';
-// import { getAllDatasets } from "../../backendCalls/metadata";
-import { searchResults } from "../../data/search_response";
 import Filters from './Filters';
+import { facetModel, hitModel, searchResponseModel } from '../../dataModels/metadata';
+import { getAllDatasetsSearchResp } from '../../backendCalls/metadata';
 
 const Browse = () => {
+
     // list of all datasets, null if not loaded yet
-    // const [dsList, setDsList] = React.useState<datasetModel[]|null>(null);
+    const [searchResults, setSearchResp] = React.useState<searchResponseModel | null>(null);
 
-    // // on mount:
-    // React.useEffect( () => getAllDatasets(setDsList), []);
+    // on mount:
+    React.useEffect(() => getAllDatasetsSearchResp(setSearchResp), [])
 
-    const hits = searchResults[0].hits;
+    var dsList: hitModel[] | null;
+    var facetList: facetModel[] | null;
 
-    // const dsList = hits.filter((hit) =>
-    //     hit.content[0].type.includes("Profiling collection") === true
-    //     // console.log(hit.content[0].type.includes("Profiling collection"))
-    // );
+    dsList = null;
+    facetList = null
 
-    var dsList = hits;
+    if (searchResults !== null) {
+        if (searchResults.hits.length > 0) {
+            dsList = searchResults.hits;
+            facetList = searchResults.facets;
+        }
+        else
+        {
+            dsList = [];
+            facetList = [];
+        }
+    }
 
     return (
-        <div style={{display:"flex", width:"100%"}}>
-            <Filters />
+        <div style={{ display: "flex", width: "100%" }}>
+            {
+                facetList == null ? ("") : (
+                    <Filters facetList={facetList} />
+                )
+            }
             <div
                 className="w3-panel foreground"
-                style={{ height: "calc(100% - 70px)", flexGrow:20}}
+                style={{ height: "calc(100% - 70px)", flexGrow: 20 }}
             >
-                <div className="w3-panel w3-round-large" style={{display:"inline-block", backgroundColor: "rgba(196,52,34,0.4)", padding:"12px", border: "1px solid rgba(196,52,34,0.5)"}}>
-                    Total datasets: {dsList.length.toString()}
-                </div>
                 {
                     dsList == null ? (
                         <LoadingIndicator
@@ -42,8 +52,11 @@ const Browse = () => {
                         dsList.length === 0 ? (
                             <span>No datasets found.</span>
                         ) : (
-
-                            <DataSetList datasets={dsList} />
+                            <div><div className="w3-panel w3-round-large" style={{ display: "inline-block", backgroundColor: "rgba(196,52,34,0.4)", padding: "12px", border: "1px solid rgba(196,52,34,0.5)" }}>
+                                Total datasets: {dsList.length.toString()}
+                            </div>
+                                <DataSetList datasets={dsList} />
+                            </div>
                         )
                     )
                 }
