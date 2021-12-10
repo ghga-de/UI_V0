@@ -110,4 +110,4 @@ build/
 .idea
 
 # Environment files
-.env
+**/*.env
