@@ -149,3 +149,26 @@
     padding: 12px;
     border: 1px solid rgba(196,52,34,0.5);
 }
+
+#loading-block {
+    margin: 20px;
+}
+
+#keyvaluefield {
+    display: flex;
+}
+
+#keyvaluefield div:first-child {
+    padding: 8px;
+    padding-top: 0;
+    padding-left: 0;
+}
+
+.experiment-div {
+    margin-bottom: 20px;
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+}
+
+#main-div {
+    padding: 20px;
+}

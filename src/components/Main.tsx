@@ -13,7 +13,7 @@ const Main = (props: {moduleFocus: moduleIds, moduleTitle: string}) => {
 
     return (
         <div
-        style={{padding:"20px"}}
+        id={"main-div"}
         >
             <Header 
                 moduleFocus={props.moduleFocus}

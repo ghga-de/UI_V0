@@ -8,10 +8,10 @@ import '../components.css'
 
 
 const DataSetDetails = (props: { datasetId: string }) => {
-    const [dataset, setDataset] = React.useState<datasetModel|null>(null);
+    const [dataset, setDataset] = React.useState<datasetModel | null>(null);
 
     // // on mount:
-    React.useEffect( () => getDatasetDetails(props.datasetId, setDataset), [props.datasetId]);
+    React.useEffect(() => getDatasetDetails(props.datasetId, setDataset), [props.datasetId]);
 
     return dataset === null ? (
         <LoadingIndicator
@@ -31,9 +31,13 @@ const DataSetDetails = (props: { datasetId: string }) => {
             </div> */}
             <hr />
             <div className="w3-container">
-                <h3>Associated Experiment:</h3>
-                <KeyValueField key_="ID" value={dataset.has_experiment[0].id} />
-                <KeyValueField key_="Type" value={dataset.has_experiment[0].type} />
+                <h3>Associated Experiment(s):</h3>
+                {dataset.has_experiment.map(experiment => (<div className="experiment-div">
+                    <KeyValueField key_="ID" value={experiment.id} />
+                    <KeyValueField key_="Type" value={experiment.type} />
+                </div>
+                ))
+                }
                 {/* <div className="w3-container">
                     <hr />
                     <h5>Samples:</h5>

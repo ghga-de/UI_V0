@@ -14,7 +14,7 @@ export const LoadingIndicatorInline = (props: loadingIndicatorProps) => (
 )
 
 const LoadingIndicator = (props: loadingIndicatorProps) => (
-    <div className="w3-container w3-center" style={{margin: "20px"}}>
+    <div className="w3-container w3-center" id={"loading-block"}>
             <div className={`${props.size}-loader`}></div>
             {props.message ? (
                 <div className="w3-center-align w3-panel">{props.message}</div>
