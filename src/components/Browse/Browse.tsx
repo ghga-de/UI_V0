@@ -53,7 +53,7 @@ const Browse = () => {
                         dsList.length === 0 ? (
                             <span>No datasets found.</span>
                         ) : (
-                            <div><div className="w3-panel w3-round-large" style={{ display: "inline-block", backgroundColor: "rgba(196,52,34,0.4)", padding: "12px", border: "1px solid rgba(196,52,34,0.5)" }}>
+                            <div><div className="w3-panel w3-round-large" id = {"dataset-list-panel"}>
                                 Total datasets: {dsList.length.toString()}
                             </div>
                                 <DataSetList datasets={dsList} />

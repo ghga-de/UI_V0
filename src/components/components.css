@@ -80,12 +80,72 @@
     height: 25px;
 }
 
-#filter-panel
-{
+#filter-panel {
     width: 300px;
     margin-right: 20px;
     border: 1px solid rgba(17,45,233,0.2);
     flex-shrink: 0;
     background-color: rgba(17,45,233,0.05);
     height: max-content;
+}
+
+#dataset-header {
+    padding: 4px 0;
+}
+
+#header-firstline {
+    float: none;
+    padding-bottom: 0;
+}
+
+#header-secondline {
+    padding-top: 0;
+}
+
+#dataset-details {
+    padding: 4px 12px 0;
+}
+
+#facet-panel {
+    background-color: white;
+    margin: 12px -4px;
+    padding: 12px;
+    border: 1px solid rgba(17,45,233,0.2)
+}
+
+#facet-panel hr {
+    margin: 8px 0 2px;
+}
+
+#facet-panel div {
+    display: flex;
+    padding: 4px;
+}
+
+#facet-panel label {
+    padding-left: 5px;
+    width: 100%;
+}
+
+#facet-panel label table,
+#facet-panel label table tr {
+    width: 100%;
+}
+
+#facet-panel label table td ~ td {
+    display: inline-block;
+    text-align: right;
+    width: 100%;
+}
+
+#filter-panel form input[type=button] {
+    width: 150px;
+    margin: 24px 0 12px;
+}
+
+#dataset-list-panel {
+    display: inline-block;
+    background-color: rgba(196,52,34,0.4);
+    padding: 12px;
+    border: 1px solid rgba(196,52,34,0.5);
 }

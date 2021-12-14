@@ -3,6 +3,7 @@ import { datasetModel } from '../../dataModels/metadata';
 import { getDatasetDetails } from "../../backendCalls/metadata";
 import KeyValueField from '../KeyValueField';
 import LoadingIndicator from '../LoadingIndicator';
+import '../components.css'
 // import FileTable from './FileTable';
 
 
@@ -18,7 +19,7 @@ const DataSetDetails = (props: { datasetId: string }) => {
             message="Loading dataset details. Please wait ..."
         />
     ) : (
-        <div style={{ padding: "4px 12px 0" }}>
+        <div id={"dataset-details"}>
             <div className="w3-container">
                 <h3>Details:</h3>
                 <KeyValueField key_="Description" value={dataset.description} />

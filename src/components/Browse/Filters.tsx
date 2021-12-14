@@ -14,7 +14,7 @@ const Filters = (props: { facetList : facetModel[] }) => {
                         <Facet facet={fc} key={fc.key} />
                     ))
                 }
-                <input type="button" value="FILTER" className="w3-bar-item w3-button w3-round-large w3-blue w3-right" style={{width:"150px", margin: "24px 0 12px"}} disabled={true}/>
+                <input type="button" value="FILTER" className="w3-bar-item w3-button w3-round-large w3-blue w3-right" disabled={true}/>
             </form>
         </div>
     );

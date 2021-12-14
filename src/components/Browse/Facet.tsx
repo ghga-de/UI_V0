@@ -8,23 +8,23 @@ interface facetProps {
 
 const Facet = (props: facetProps) => {
     return (
-        <div className="w3-round-xlarge" style={{ backgroundColor: "white", margin: "12px -4px", padding: "12px", border:"1px solid rgba(17,45,233,0.2)" }}>
+        <div className="w3-round-xlarge" id={"facet-panel"}>
             {props.facet.title}
-            <hr style={{ margin: "8px 0 2px" }} />
+            <hr/>
             {
                 props.facet.options.map((opt) => (
-                    <div style={{ display: "flex", padding: "4px" }}>
+                    <div>
                         <input type="checkbox" id={opt.option} value={opt.option} name={props.facet.key} onChange={(e) => {
                             // console.log(document.querySelectorAll('input[name="'+props.facet.key+'"]:checked'));
                         }}
                         className="facet-checkbox">
                         </input>
-                        <label htmlFor={opt.option} style={{ paddingLeft: "5px", width: "100%" }}>
-                            <table style={{ width: "100%" }}>
+                        <label htmlFor={opt.option}>
+                            <table>
                                 <tbody>
-                                <tr style={{ width: "100%" }}>
-                                    <td style={{}}>{opt.option}</td>
-                                    <td style={{ display: "inline-block", textAlign: "right", width: "100%" }}>{opt.count}</td>
+                                <tr>
+                                    <td>{opt.option}</td>
+                                    <td>{opt.count}</td>
                                 </tr>
                                 </tbody>
                             </table>
