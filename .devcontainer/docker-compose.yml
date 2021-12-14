@@ -16,11 +16,11 @@ services:
   # data portal ui
 
   data_portal_ui_svc:
-    image: ghga/sandbox-ui:dev
+    image: ghga/data_portal_ui_v0:dev
     environment:
-      ghga_data_portal_v0_ui_HOST: 0.0.0.0
-      ghga_data_portal_v0_ui_PORT: 8080
-      ghga_data_portal_v0_ui_WELCOME_INFO: This web app is part of an implementation study.\nIt's not intended for production use.
+      data_portal_ui_v0_HOST: 0.0.0.0
+      data_portal_ui_v0_PORT: 8080
+      data_portal_ui_v0_WELCOME_INFO: This web app is part of an implementation study.\nIt's not intended for production use.
     ports:
       - 8000:8080
     depends_on:

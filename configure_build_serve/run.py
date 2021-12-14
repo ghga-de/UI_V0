@@ -28,7 +28,7 @@ ROOT_DIR = Path(__file__).parent.parent.resolve()
 IGNORE_PARAMS_FOR_REACT_APP = ["host", "port"]
 
 
-@config_from_yaml(prefix="ghga_data_portal_v0_ui")
+@config_from_yaml(prefix="data_portal_ui_v0")
 class Config(BaseSettings):
     """Config parameters and their defaults."""
     host: str = "localhost"

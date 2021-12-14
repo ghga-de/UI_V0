@@ -1,9 +1,9 @@
 import React from 'react';
-import { datasetModel, datasetSampleModel } from '../../dataModels/metadata';
+import { datasetModel } from '../../dataModels/metadata';
 import { getDatasetDetails } from "../../backendCalls/metadata";
 import KeyValueField from '../KeyValueField';
 import LoadingIndicator from '../LoadingIndicator';
-import FileTable from './FileTable';
+// import FileTable from './FileTable';
 
 
 const DataSetDetails = (props: { datasetId: string }) => {
