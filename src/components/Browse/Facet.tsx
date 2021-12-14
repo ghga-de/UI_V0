@@ -16,7 +16,8 @@ const Facet = (props: facetProps) => {
                     <div style={{ display: "flex", padding: "4px" }}>
                         <input type="checkbox" id={opt.option} value={opt.option} name={props.facet.key} onChange={(e) => {
                             // console.log(document.querySelectorAll('input[name="'+props.facet.key+'"]:checked'));
-                        }} style={{height: "25px"}}>
+                        }}
+                        className="facet-checkbox">
                         </input>
                         <label htmlFor={opt.option} style={{ paddingLeft: "5px", width: "100%" }}>
                             <table style={{ width: "100%" }}>

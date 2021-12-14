@@ -5,7 +5,7 @@ const WelcomeModule = () => (
     <div className="w3-panel w3-center">
         <img src={logoFull} alt='' width="350px"/>
         <h1>
-            The GHGA Sandbox Data Portal 
+            The GHGA v0 Data Portal 
         </h1>
         <h4    className="w3-text-indigo">
             Browse. Extract. Experiment.

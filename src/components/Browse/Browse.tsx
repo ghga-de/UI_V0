@@ -4,6 +4,7 @@ import DataSetList from './DatasetList';
 import Filters from './Filters';
 import { facetModel, hitModel, searchResponseModel } from '../../dataModels/metadata';
 import { getAllDatasetsSearchResp } from '../../backendCalls/metadata';
+import '../components.css'
 
 const Browse = () => {
 
@@ -32,7 +33,7 @@ const Browse = () => {
     }
 
     return (
-        <div style={{ display: "flex", width: "100%" }}>
+        <div id={"browse-panel"}>
             {
                 facetList == null ? ("") : (
                     <Filters facetList={facetList} />
@@ -40,7 +41,7 @@ const Browse = () => {
             }
             <div
                 className="w3-panel foreground"
-                style={{ height: "calc(100% - 70px)", flexGrow: 20 }}
+                id={"datasets-panel"}
             >
                 {
                     dsList == null ? (

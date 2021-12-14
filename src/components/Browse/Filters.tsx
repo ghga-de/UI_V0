@@ -5,7 +5,7 @@ import Facet from "./Facet";
 const Filters = (props: { facetList : facetModel[] }) => {
 
     return (
-        <div style={{ width: "300px", marginRight: "20px", border: "1px solid rgba(17,45,233,0.2)", flexShrink: 0, backgroundColor: "rgba(17,45,233,0.05)", height:"max-content" }}
+        <div id={"filter-panel"}
             className="w3-panel">
             <h3>Filters:</h3>
             <form >

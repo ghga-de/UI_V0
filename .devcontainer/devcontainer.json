@@ -4,9 +4,9 @@
 	"name": "Python 3",
 
 	"dockerComposeFile": [
-		// the main compose file containing all sandbox services,
+		// the main compose file containing all data portal services,
 		// this file is obtained from an external repository
-		// (https://github.com/ghga-de/sandbox-dev-service-compose),
+		// (https://github.com/ghga-de/dataportal-dev-service-compose),
 		// to update please run `./update_main_compose_yml.sh`:
 		"docker-compose.yml",
 

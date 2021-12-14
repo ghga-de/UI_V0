@@ -65,3 +65,27 @@
     0% { transform: rotate(0deg) }
     100% { transform: rotate(360deg) }
 }
+
+#browse-panel {
+    display: flex;
+    width: 100%;
+}
+
+#datasets-panel {
+    height: calc(100% - 70px);
+    flex-grow: 20;
+}
+
+.facet-checkbox {
+    height: 25px;
+}
+
+#filter-panel
+{
+    width: 300px;
+    margin-right: 20px;
+    border: 1px solid rgba(17,45,233,0.2);
+    flex-shrink: 0;
+    background-color: rgba(17,45,233,0.05);
+    height: max-content;
+}

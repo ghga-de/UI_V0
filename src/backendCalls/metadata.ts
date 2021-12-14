@@ -13,7 +13,7 @@ const postHeaders = {
 
 export const getAllDatasetsSearchResp: getAllDatasetsSearchRespType = (callbackFunc) => {
     fetch(
-        `${process.env.REACT_APP_SVC_METADATA_SEARCH_URL}/rpc/search?document_type=Dataset&return_facets=true&skip=0&limit=0`,
+        `${process.env.REACT_APP_SVC_SEARCH_URL}/rpc/search?document_type=Dataset&return_facets=true&skip=0&limit=0`,
         {
             method: 'POST',
             headers: postHeaders,
@@ -38,7 +38,7 @@ type getDatasetDetailsType = (
 
 export const getDatasetDetails: getDatasetDetailsType = (datasetId, callbackFunc) => {
     fetch(
-        `${process.env.REACT_APP_SVC_METADATA_URL}/datasets/${datasetId}?embedded=true`,
+        `${process.env.REACT_APP_SVC_REPOSITORY_URL}/datasets/${datasetId}?embedded=true`,
         {
             method: 'get'
         }
@@ -60,7 +60,7 @@ type getAllDatasetsType = (
 
 export const getAllDatasets: getAllDatasetsType = (callbackFunc) => {
     fetch(
-        `${process.env.REACT_APP_SVC_METADATA_URL}/datasets`,
+        `${process.env.REACT_APP_SVC_REPOSITORY_URL}/datasets`,
         {
             method: 'get'
         }
@@ -83,7 +83,7 @@ type getOneDatasetType = (
 
 export const getOneDataset: getOneDatasetType = (datasetId, callbackFunc) => {
     fetch(
-        `${process.env.REACT_APP_SVC_METADATA_URL}/datasets/${datasetId}?embedded=true`,
+        `${process.env.REACT_APP_SVC_REPOSITORY_URL}/datasets/${datasetId}?embedded=true`,
         {
             method: 'get'
         }
