@@ -13,7 +13,7 @@ const postHeaders = {
 
 export const getAllDatasetsSearchResp: getAllDatasetsSearchRespType = (callbackFunc) => {
     fetch(
-        `${process.env.REACT_APP_SVC_METADATA_SEARCH_URL}/rpc/search?document_type=Dataset&return_facets=false&skip=0&limit=0`,
+        `${process.env.REACT_APP_SVC_METADATA_SEARCH_URL}/rpc/search?document_type=Dataset&return_facets=true&skip=0&limit=0`,
         {
             method: 'POST',
             headers: postHeaders,
