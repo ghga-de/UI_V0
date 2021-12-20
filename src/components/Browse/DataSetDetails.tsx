@@ -1,19 +1,17 @@
 import React from 'react';
-import { datasetSampleModel } from '../../dataModels/metadata';
-// import { datasetEmbeddedModel } from "../../dataModels/metadata";
-// import { getOneDataset } from "../../backendCalls/metadata";
+import { datasetModel } from '../../dataModels/metadata';
+import { getDatasetDetails } from "../../backendCalls/metadata";
 import KeyValueField from '../KeyValueField';
 import LoadingIndicator from '../LoadingIndicator';
-import FileTable from './FileTable';
+import '../components.css'
+// import FileTable from './FileTable';
 
 
 const DataSetDetails = (props: { datasetId: string }) => {
-    // const [dataset, setDataset] = React.useState<datasetEmbeddedModel|null>(null);
+    const [dataset, setDataset] = React.useState<datasetModel | null>(null);
 
     // // on mount:
-    // React.useEffect( () => getOneDataset(props.datasetId, setDataset), []);
-
-    const dataset = require('../../data/datasets/' + props.datasetId).default[0];
+    React.useEffect(() => getDatasetDetails(props.datasetId, setDataset), [props.datasetId]);
 
     return dataset === null ? (
         <LoadingIndicator
@@ -21,38 +19,36 @@ const DataSetDetails = (props: { datasetId: string }) => {
             message="Loading dataset details. Please wait ..."
         />
     ) : (
-        <div style={{ padding: "4px 12px 0" }}>
+        <div id={"dataset-details"}>
             <div className="w3-container">
                 <h3>Details:</h3>
-                <KeyValueField key_="Description" value={dataset.content[0].description} />
+                <KeyValueField key_="Description" value={dataset.description} />
             </div>
-            <hr />
+            {/* <hr />
             <div className="w3-container">
                 <h3>Associated Study:</h3>
-                <KeyValueField key_="ID" value={dataset.content[0].has_study} />
-            </div>
+                <KeyValueField key_="ID" value={dataset.has_study} />
+            </div> */}
             <hr />
             <div className="w3-container">
-                <h3>Associated Project:</h3>
-                <KeyValueField key_="ID" value={dataset.content[0].has_project[0].id} />
-                <KeyValueField key_="Title" value={dataset.content[0].has_project[0].title} />
-            </div>
-            <hr />
-            <div className="w3-container">
-                <h3>Associated Experiment:</h3>
-                <KeyValueField key_="ID" value={dataset.content[0].has_experiment[0].id} />
-                <KeyValueField key_="Type" value={dataset.content[0].has_experiment[0].type} />
-                <div className="w3-container">
+                <h3>Associated Experiment(s):</h3>
+                {dataset.has_experiment.map(experiment => (<div className="experiment-div">
+                    <KeyValueField key_="ID" value={experiment.id} />
+                    <KeyValueField key_="Type" value={experiment.type} />
+                </div>
+                ))
+                }
+                {/* <div className="w3-container">
                     <hr />
                     <h5>Samples:</h5>
-                    {dataset.content[0].has_experiment[0].has_sample.map((sample: datasetSampleModel) =>
+                    {dataset.has_experiment[0].has_sample.map((sample: datasetSampleModel) =>
                     (<div><KeyValueField key_="Sample ID" value={sample.id} />
                         <KeyValueField key_="Sample Tissue" value={sample.tissue} /></div>)
                     )}
                 </div>
                 <hr />
                 <h3>Files:</h3>
-                <FileTable files={dataset.content[0].has_experiment[0].has_file} />
+                <FileTable files={dataset.has_experiment[0].has_file} /> */}
             </div>
             <hr />
         </div>

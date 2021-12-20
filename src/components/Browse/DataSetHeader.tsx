@@ -5,9 +5,9 @@ import '../components.css';
 const DataSetHeader = (props: {dataset: hitContentModel}) => (
     <div 
         className="w3-bar w3-round-xlarge w3-hover-amber interactive-item-header"
-        style={{padding: "4px 0"}}
+        id={"dataset-header"}
     >   
-        <div className="w3-bar-item" style={{float:"none", paddingBottom: "0"}}>
+        <div className="w3-bar-item" id={"header-firstline"}>
             <table><tbody>
                 <tr>
                     <td    className="w3-text-indigo">
@@ -24,7 +24,7 @@ const DataSetHeader = (props: {dataset: hitContentModel}) => (
                 {/* </tr> */}
             </tbody></table>
         </div>
-        <div className="w3-bar-item" style={{paddingTop:"0"}}>
+        <div className="w3-bar-item" id={"header-secondline"}>
             <table><tbody>
                 <tr>
                     <td    className="w3-text-indigo">

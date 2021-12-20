@@ -28,15 +28,14 @@ ROOT_DIR = Path(__file__).parent.parent.resolve()
 IGNORE_PARAMS_FOR_REACT_APP = ["host", "port"]
 
 
-@config_from_yaml(prefix="sandbox_ui")
+@config_from_yaml(prefix="data_portal_ui_v0")
 class Config(BaseSettings):
     """Config parameters and their defaults."""
     host: str = "localhost"
     port: int = 8080
     welcome_info: Optional[str]
-    svc_metadata_url: str = "https://sandbox.api.ghga-dev.de/metadata"
-    svc_request_url: str = "https://sandbox.api.ghga-dev.de/request"
-    svc_storage_url: str = "https://sandbox.api.ghga-dev.de/storage"
+    svc_search_url: str = "https://dataportal.api.ghga-dev.de/metadata-search"
+    svc_repository_url: str = "https://dataportal.api.ghga-dev.de/metadata"
 
 def simplelog(text: str):
     print(f"\n>>> {text}\n")
