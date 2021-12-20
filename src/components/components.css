@@ -139,8 +139,11 @@
 }
 
 #filter-panel form input[type=button] {
-    width: 150px;
     margin: 24px 0 12px;
+}
+
+#filter-panel form input[type=button] ~ input[type=button] {
+    width: 100px;
 }
 
 #dataset-list-panel {
@@ -171,4 +174,41 @@
 
 #main-div {
     padding: 20px;
+}
+
+
+#selected-filters {
+    display: flow-root;
+}
+
+.filter-widget {
+    display: inline;
+    width: auto;
+    padding: 0 12px !important;
+    background-color:rgba(196,52,34,0.1);
+    font-size: 60%;
+    max-width: 250px;
+    height: 30px;
+    margin: 2px 2px;
+    overflow: hidden;
+    border: 1px solid rgba(196,52,34,0.5);
+    vertical-align: middle;
+    float:left;
+}
+
+.filter-widget div {
+    display: inline;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.filter-widget span {
+    vertical-align: middle;
+}
+
+.filter-widget input[type=button] {
+    display: inline;
+    background: none;
+    border: none;
+    color: red;
 }

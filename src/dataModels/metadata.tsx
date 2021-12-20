@@ -88,7 +88,6 @@ export interface facetOptionsModel {
 
 export interface facetModel {
     key: string;
-    title: string,
     options: facetOptionsModel[],
 };
 

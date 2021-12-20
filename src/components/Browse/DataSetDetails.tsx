@@ -33,8 +33,8 @@ const DataSetDetails = (props: { datasetId: string }) => {
             <div className="w3-container">
                 <h3>Associated Experiment(s):</h3>
                 {dataset.has_experiment.map(experiment => (<div className="experiment-div">
-                    <KeyValueField key_="ID" value={experiment.id} />
-                    <KeyValueField key_="Type" value={experiment.type} />
+                    <KeyValueField key_="ID" value={experiment.id} key={experiment.id} />
+                    <KeyValueField key_="Type" value={experiment.type} key={experiment.id} />
                 </div>
                 ))
                 }
